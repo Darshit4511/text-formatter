@@ -36,10 +36,10 @@ export default function TextForm(props) {
         </div>
         <div className="container" >
 
-        <button className="btn btn-primary mx-3"  onClick={upClickHandle}>Change to Uppercase</button>
-        <button className="btn btn-primary mx-3"  onClick={lowClickHandle}>Change to Lowercase</button>
-        <button className="btn btn-primary mx-3"  onClick={copyHandle}>Copy Text</button>
-        <button className="btn btn-primary mx-3"  onClick={clearHandle}>Clear</button>
+        <button className="btn btn-primary mx-3 my-3"  onClick={upClickHandle}>Change to Uppercase</button>
+        <button className="btn btn-primary mx-3 my-3"  onClick={lowClickHandle}>Change to Lowercase</button>
+        <button className="btn btn-primary mx-3 my-3"  onClick={copyHandle}>Copy Text</button>
+        <button className="btn btn-primary mx-3 my-3"  onClick={clearHandle}>Clear</button>
         </div>
         <div className="container my-3" style={{color : props.theme === 'light'?'black' : 'white'}}>
             <h1> Text Summary : </h1>
