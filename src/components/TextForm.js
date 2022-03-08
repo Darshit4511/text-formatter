@@ -14,10 +14,9 @@ export default function TextForm(props) {
     const onChangeHandle = (event)=>{
         setText(event.target.value);
     }
-    const copyHandle = (event)=>{
-        let text = document.getElementById("box");
-        text.select();
-        navigator.clipboard.writeText(text.value);
+    const copyHandle = ()=>{
+        navigator.clipboard.writeText(text);
+        props.showAlert('success', 'Text Copied to Clipboard');
     }
     const clearHandle = ()=>{;
         if (window.confirm("Are you sure ?")) {
@@ -36,14 +35,14 @@ export default function TextForm(props) {
         </div>
         <div className="container" >
 
-        <button className="btn btn-primary mx-3 my-3"  onClick={upClickHandle}>Change to Uppercase</button>
-        <button className="btn btn-primary mx-3 my-3"  onClick={lowClickHandle}>Change to Lowercase</button>
-        <button className="btn btn-primary mx-3 my-3"  onClick={copyHandle}>Copy Text</button>
-        <button className="btn btn-primary mx-3 my-3"  onClick={clearHandle}>Clear</button>
+        <button className="btn btn-primary mx-2 my-2"  onClick={upClickHandle}>Change to Uppercase</button>
+        <button className="btn btn-primary mx-2 my-2"  onClick={lowClickHandle}>Change to Lowercase</button>
+        <button className="btn btn-primary mx-2 my-2"  onClick={copyHandle}>Copy Text</button>
+        <button className="btn btn-primary mx-2 my-2"  onClick={clearHandle}>Clear</button>
         </div>
         <div className="container my-3" style={{color : props.theme === 'light'?'black' : 'white'}}>
             <h1> Text Summary : </h1>
-            {text[text.length-1]=== '' || text[text.length-1]=== ' ' || text.length===0 ?text.split(" ").length-1 : text.split(" ").length} Words and {text.length} Characters
+            {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters
         </div>
 
     </>
